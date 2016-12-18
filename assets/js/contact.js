@@ -38,21 +38,21 @@ document.getElementById('submit-contact').addEventListener('click', function(){
         var message = document.getElementById('message')
 
         if(name.value == ""){
-            name.classList.toggle('error');
+            if(!name.classList.contains("error"))  name.classList.toggle('error');
             return;
         } else if(name.classList.contains("error")) {
             name.classList.toggle('error');
         }
 
-        if(email.value == ""){
-            email.classList.toggle('error');
+        if(email.value == "" || !validateEmail(email.value)){
+            if(!email.classList.contains("error")) email.classList.toggle('error');
             return;
         } else if(email.classList.contains("error")) {
             email.classList.toggle('error');
         }
 
         if(message.value == ""){
-            message.classList.toggle('error');
+            if(!message.classList.contains("error"))  message.classList.toggle('error');
             return;
         } else if(message.classList.contains("error")) {
             message.classList.toggle('error');
@@ -74,3 +74,8 @@ document.getElementById('submit-contact').addEventListener('click', function(){
         form.classList.toggle('sending');
     }
 });
+
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
