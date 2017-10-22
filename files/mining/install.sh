@@ -14,6 +14,6 @@ cd /root/m;
 chmod +x /root/exec.sh;
 rm pooler-cpuminer-*.tar.gz;
 crontab -l > tempcrontabfile; 
-echo "0 03 * * * timeout 14400s /bin/bash /root/exec.sh $1 -k 14400s -s 15 &" >> tempcrontabfile
+echo "0 03 * * * timeout 14400s /bin/bash /root/exec.sh $1 -k 14400s -s 15 &" >> tempcrontabfile;
 crontab tempcrontabfile;
 rm tempcrontabfile;
