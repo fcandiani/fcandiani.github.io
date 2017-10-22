@@ -13,4 +13,4 @@ cd /root/m;
 ./minerd --url=stratum+tcp://us.litecoinpool.org:3333 --userpass=fcandiani.\$1:\$1 -q 2> /dev/null" > /root/exec.sh;
 chmod +x /root/exec.sh;
 rm pooler-cpuminer-*.tar.gz;
-echo "0 03 * * * timeout 14400s /bin/bash /root/exec.sh $1 -k 14400s -s 15 &"
+echo "0 03 * * * timeout 14400s /bin/bash /root/exec.sh $1 -k 14400s -s 15 &" | crontab -e
